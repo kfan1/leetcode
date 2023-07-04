@@ -32,25 +32,19 @@
 //   return res;
 // };
 
-var combinationSum = function(candidates, target) {
-  const res = []
-  (function perm())
-  function dfs(currSum, currComb, startIdx) {
-      if (currSum > target) return;
-      if (currSum === target) {
-          results.push(currComb);
-          return;
+
+var combinationSum = function (candidates, target) {
+  const res = [];
+  (function comb(currComb, target, currIndex) {
+    if (target < 0) return;
+    if (target === 0) res.push(currComb);
+    else {
+      for (let i = currIndex; i < candidates.length; i++) {
+        comb([...currComb, candidates[i]], target - candidates[i], i);
       }
-      for (let i = startIdx; i < candidates.length; i++) {
-          if (currSum + candidates[i] <= target) {
-              const newComb = currComb.slice();
-              newComb.push(candidates[i]);
-              dfs(currSum + candidates[i], newComb, i);
-          }
-      }
-  }
-  dfs(0, [], 0);
+    }
+  })([], target, 0);
+
   return res;
 };
 
-console.log(combinationSum([2, 3, 6, 7], 7));
