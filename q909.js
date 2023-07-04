@@ -65,12 +65,3 @@ var snakesAndLadders = function (board) {
 
   return min;
 };
-
-console.log(
-  snakesAndLadders([
-    [-1, -1, -1, -1],
-    [-1, -1, -1, -1],
-    [-1, -1, -1, -1],
-    [-1, -1, -1, -1],
-  ])
-);
