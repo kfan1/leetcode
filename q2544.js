@@ -7,13 +7,8 @@ var alternateDigitSum = function (n) {
   let sign = true;
   n = String(n);
   for (let i = 0; i < n.length; i++) {
-    if (sign) {
-      sign = !sign;
-      sum += Number(n[i]);
-    } else {
-      sign = !sign;
-      sum -= Number(n[i]);
-    }
+    sign ? (sum += Number(n[i])) : (sum -= Number(n[i]));
+    sign = !sign;
   }
   return sum;
 };
