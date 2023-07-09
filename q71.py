@@ -9,7 +9,7 @@ class Solution(object):
         n = 0
         while n < len(pathList):
             if pathList[n] == "..":
-                if(n != 0):
+                if n != 0:
                     pathList.pop(n)
                     n -= 1
                     pathList.pop(n)
@@ -19,10 +19,9 @@ class Solution(object):
                 n += 1
 
         str = "/" + "/".join(pathList)
-        
+
         return str
 
 
 test = Solution().simplifyPath
 print(test("/../"))
-
